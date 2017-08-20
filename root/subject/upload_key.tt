@@ -1,0 +1,11 @@
+[% title = "Upload key" %]
+
+<form method="post" action="[%- c.uri_for(c.controller.action_for('upload_key')) -%]" enctype="multipart/form-data">
+    <div><label for="key_name">Name</label><input id="key_name" name="key_name" type="text" /></div>
+    <div><label
+        for="fake_filename">PEM-file</label><input
+        id="fake_filename" type="text" onClick="document.getElementById('filename').click()" readonly="readonly"/>
+    </div>
+    <div class="buttons"><input type="submit" value="Upload" /></div>
+    <input id="filename" name="filename" type="file" onChange="document.getElementById('fake_filename').value=this.value" />
+</form>

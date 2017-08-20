@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <title>[%- title -%]</title>
+        <link rel="stylesheet" type="text/css" href="/static/css/main.css" />
+        <link rel="stylesheet" type="text/css" href="/static/css/csl.css" />
+        <link rel="stylesheet" type="text/css" href="/static/css/zebratable.css" />
+        <script src="/static/js/main.js"></script>
+    </head>
+    <body>
+        <div id="header">
+            <h1>[% IF title %][%- title -%]::[% END %]WebCA</h1>
+        </div>
+[%- INCLUDE "menu.tt" -%]

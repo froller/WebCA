@@ -1,0 +1,29 @@
+[% PROCESS icons.tt %]
+
+[% SET title = "My Keys" %]
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Size</th>
+            <th>Issue date</th>
+            <th>Private</th>
+            <th>Public</th>
+            <th><a href="[%- c.uri_for(c.controller.action_for('new_key')) -%]">[% INCLUDE icon_add size=16 %]</a></th>
+        </tr>
+    </thead>
+    <tbody>
+[% FOR key IN keys %]
+        <tr [%- IF key.used %]class="key_used"[% END -%]>
+            <td>[%- key.key_name -%]</td>
+            <td>[%- key.key_type -%]</td>
+            <td>[%- key.key_size -%]</td>
+            <td>[%- key.timestamp -%]</td>
+            <td><a href="[%- c.uri_for(c.controller.action_for('key'), key.key_id, 'private') -%]">[% INCLUDE icon_download size=16 %]</a></td>
+            <td><a href="[%- c.uri_for(c.controller.action_for('key'), key.key_id, 'public') -%]">[% INCLUDE icon_download size=16 %]</a></td>
+            <td><a href="[%- c.uri_for(c.controller.action_for('delete_key'), key.key_id) -%]">[% INCLUDE icon_delete size=16 %]</a></td>
+        </tr>
+[% END %]
+    </tbody>
+</table>

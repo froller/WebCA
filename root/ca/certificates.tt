@@ -1,0 +1,8 @@
+[% SET title = "My Certificates" %]
+
+<table>
+    <thead>
+    </thead>
+    <tbody>
+    </tbody>
+</table>

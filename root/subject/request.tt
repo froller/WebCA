@@ -1,0 +1,35 @@
+[% SET title = "New Request" %]
+[% PROCESS "countries.tt" %]
+
+<form method="post" action="[%- c.uri_for(c.controller.action_for('update_request'), c.req.args.0 || 0) -%]">
+    <div>
+        <label for="key_id">Key</label>
+        <select name="key_id">
+[% FOR key_type IN ['RSA', 'DSA'] %]
+            <optgroup label="[%- key_type -%]">
+    [% FOR key IN keys %]
+        [% IF key.key_type == key_type %]
+                <option value="[%- key.key_id -%]" [%- IF key.used(request.request_id) %]class="key_used"[% END -%]>[%- key.key_name -%]</option>
+        [% END %]
+    [% END %]
+            </optgroup>
+[% END %]
+            </optgroup>
+        </select>
+    </div>
+    <div>
+        <label for="c">Country</label>
+        <select id="c" name="c">
+[% FOR country IN countries %]
+            <option value="[%- country.code -%]" [% IF (!request.c && country.code == "RU") || request.c == country.code %]selected="selected"[% END %]>[%- country.name -%]</option>
+[% END %]
+        </select>
+    </div>
+    <div><label for="st">State or Province</label><input id="st" type="text" name="st" value="[%- request.st -%]" /></div>
+    <div><label for="l">Locality Name</label><input id="l" type="text" name="l" value="[%- request.l -%]" /></div>
+    <div><label for="o">Organization</label><input id="o" type="text" name="o" value="[%- request.o -%]" /></div>
+    <div><label for="ou">Organizational Unit</label><input id="ou" type="text" name="ou" value="[%- request.ou -%]" /></div>
+    <div><label for="cn">Common Name</label><input id="cn" type="text" name="cn" value="[%- request.cn -%]" /></div>
+    <div><label for="email">E-mail</label><input id="email" type="text" name="email" value="[%- request.email -%]" /></div>
+    <div class="buttons"><input type="submit" value="[% IF request.request_id %]Update[% ELSE %]Issue[% END %]" /></div>
+</form>

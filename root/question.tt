@@ -1,0 +1,8 @@
+<form method="post" action="[%- question.action -%]">
+    <div class="message">[%- question.text -%]</div>
+    <div class="buttons">
+[% FOR answer IN question.answers %]
+        <input type="submit" name="[%- answer.value -%]" value="[%- answer.text -%]"/>
+[% END %]
+    <div>
+</form>

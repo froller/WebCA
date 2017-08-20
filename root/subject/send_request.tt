@@ -1,0 +1,11 @@
+[% SET title = "Send request" %]
+[% SET selector = {
+    action  => c.uri_for(c.controller.action_for('send_request'), request.request_id), 
+    text    => "Send request for '${request.subject}' to ",
+    options => ${cas},
+    answers => [
+        {text => 'Ok', value="ok"},
+        {text => 'Cancel', value="cancel"}
+    ]
+} %]
+[% INCLUDE "selector.tt" %]

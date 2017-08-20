@@ -1,0 +1,23 @@
+[% SET title = "My Requests" %]
+
+<table>
+    <thead>
+        <tr>
+            <th>Subject</th>
+            <th>Issue date</th>
+            <th>Request</th>
+            <th colspan="2">[<a href="[%- c.uri_for(c.controller.action_for('request'), 0) -%]">new</a>]</th>
+        </tr>
+    </thead>
+    <tbody>
+[% FOR request IN requests %]
+        <tr>
+            <td><a href="[%- c.uri_for(c.controller.action_for('request'), request.request_id) -%]">[%- request.subject -%]</a></td>
+            <td>[%- request.timestamp -%]</td>
+            <td>[<a href="[%- c.uri_for(c.controller.action_for('download_request'), request.request_id) -%]">download</a>]</td>
+            <td>[<a href="[%- c.uri_for(c.controller.action_for('delete_request'), request.request_id) -%]">delete</a>]</td>
+            <td>[<a href="[%- c.uri_for(c.controller.action_for('send_request'), request.request_id) -%]">send to CA</a>]</td>
+        </tr>
+[% END %]
+    </tbody>
+</table>

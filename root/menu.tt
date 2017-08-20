@@ -1,0 +1,9 @@
+<nav>
+    <ul>
+[% FOR item IN menu %]
+        <li [% IF item.active %]class="active"[% END %]>
+            <a href="[%- item.link -%]">[%- item.title -%]</a>
+        </li>
+[% END %]
+    </ul>
+</nav>

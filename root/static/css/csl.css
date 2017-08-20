@@ -1,0 +1,15 @@
+ul.commaSeparated {
+    margin: 0;
+    padding: 0;
+    display: inline;
+}
+ul.commaSeparated li {
+    display: inline;
+    text-transform: capitalize;
+}
+ul.commaSeparated li:after {
+    content: ',';
+}
+ul.commaSeparated li:nth-last-child(1):after {
+    content: '';
+}

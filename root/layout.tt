@@ -1,0 +1,9 @@
+[% INCLUDE header.tt %]
+<div id="content">
+[% IF error %]
+[% INCLUDE error.tt %]
+[% ELSE %]
+[% content %]
+[% END %]
+</div>
+[% INCLUDE footer.tt %]

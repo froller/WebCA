@@ -1,0 +1,10 @@
+[% SET title = "Delete request" %]
+[% SET question = {
+    action  => c.uri_for(c.controller.action_for('delete_request'), request.request_id), 
+    text    => "Delete request for '${request.subject}'?",
+    answers => [
+        {text => 'Ok', value="ok"},
+        {text => 'Cancel', value="cancel"}
+    ]
+} %]
+[% INCLUDE "question.tt" %]

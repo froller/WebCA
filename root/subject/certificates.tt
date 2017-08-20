@@ -1,0 +1,16 @@
+[% SET title = "My Certificates" %]
+
+<table>
+    <thead>
+        <tr>
+            <th>Issued</th>
+        </tr>
+    </thead>
+    <tbody>
+[% FOR certificate IN certificates %]
+        <tr>
+            <td>[%- certificate.timestamp -%]</td>
+        </tr>
+[% END %]
+    </tbody>
+</table>

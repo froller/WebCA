@@ -1,0 +1,21 @@
+[% title = "Issue key" %]
+
+<form method="post" action="[%- c.uri_for(c.controller.action_for('new_key')) -%]">
+    <div><label for="key_name">Name</label><input id="key_name" name="key_name" type="text" /></div>
+    <div>
+        <label for="key_type">Type</label>
+        <select name="key_type">
+            <option value="RSA">RSA</option>
+            <option value="DSA">DSA</option>
+        </select>
+    </div>
+    <div>
+        <label for="key_size">Size</label>
+        <select name="key_size">
+[% FOR key_size IN [4096, 2048, 1024, 512, 256, 128, 64] %]
+            <option value="[%- key_size -%]" [% IF key_size == 1024 %]selected="selected"[% END %]>[%- key_size -%]</option>
+[% END %]
+        </select>
+    </div>
+    <div class="buttons"><input type="submit" value="Generate" /></div>
+</form>

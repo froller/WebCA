@@ -1,0 +1,18 @@
+[% SET title = "Modify user" %]
+
+<form method="post" action="[%- c.uri_for(c.controller('Admin').action_for('update_user'), user.user_id || 0) -%]">
+    <div><label for="username">Username</label><input id="username" name="username" type="text" value="[%- user.username -%]" /></div>
+    <div><label for="password">Password</label><input id="password" name="password" type="password" /></div>
+    <div><label for="confirm_password">Confirm password</label><input id="confirm_password" name="password" type="password" /></div>
+    <div><label for="email">E-mail</label><input id="email" name="email" type="text" value="[%- user.email -%]" /></div>
+    <fieldset>
+        <legend>User roles</legend>
+[% FOR role IN ['admin', 'root', 'intermediate', 'subject'] %]
+        <div class="checker">
+            <input id="checkbox_[%- role -%]" name="roles" type="checkbox" value="[%- role -%]" [% IF user.has_role(role) %]checked="checked"[% END %] />
+            <label for="checkbox_[%- role -%]">[%- role -%]</label>
+        </div>
+[% END %]
+    </fieldset>
+    <div class="buttons"><input type="submit" value="Submit"/></div>
+</form>

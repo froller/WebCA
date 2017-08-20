@@ -1,0 +1,3 @@
+[% SET title = "Home" %]
+
+<p>Welcome to Web CA, <span style="font-weight: bold;">[%- c.user.username -%]</span>!</p>

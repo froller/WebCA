@@ -1,0 +1,10 @@
+[% SET title="Root CA" %]
+
+<ul>
+    <li>My keys</li>
+    <li>My requests</li>
+    <li>My certificates</li>
+    <li>Incoming requests</li>
+    <li>Issued certificates</li>
+    <li>Revoked certificates</li>
+</ul>

@@ -1,0 +1,10 @@
+[% SET title = "Delete key" %]
+[% SET question = {
+    action  => c.uri_for(c.controller.action_for('delete_key'), key.key_id), 
+    text    => "Delete key '${key.key_name}'?",
+    answers => [
+        {text => 'Ok', value="ok"},
+        {text => 'Cancel', value="cancel"}
+    ]
+} %]
+[% INCLUDE "question.tt" %]

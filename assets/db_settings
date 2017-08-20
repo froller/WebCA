@@ -1,0 +1,5 @@
+USERNAME=webca
+PASSWORD=webca_123
+DATABASE=webca
+FILENAME=webca_database.sql
+

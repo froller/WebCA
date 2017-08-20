@@ -1,0 +1,15 @@
+<form method="post" action="[%- selector.action -%]">
+    <div class="message">[%- selector.text -%]</div>
+    <div class="message">
+        <select>
+[% FOR option IN selector.options %]
+            <option value="[%- option.value -%]">[%- option.text -%]</option>
+[% END %]
+        </select>
+    </div>
+    <div class="buttons">
+[% FOR answer IN selector.answers %]
+        <input type="submit" name="[%- answer.value -%]" value="[%- answer.text -%]"/>
+[% END %]
+    <div>
+</form>

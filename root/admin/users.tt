@@ -1,0 +1,30 @@
+[% PROCESS icons.tt %]
+[% SET title = "Users" %]
+<table>
+    <thead>
+        <tr>
+            <th>Username</th>
+            <th>Roles</th>
+            <th>E-mail</th>
+            <th>&nbsp;</th>
+            <th><a href="[%- c.uri_for(c.controller('Admin').action_for('user'), 0) -%]">[% INCLUDE icon_add size = 16 %]</a></th>
+        <tr>
+    </thead>
+    <tbody>
+[% FOR user IN users %]
+        <tr ondragstart="rowDragStart(this)" ondragend="rowDragEnd(this)" ondrag="rowDrag(this, event)">
+            <td>[%- user.username -%]</td>
+            <td>
+                <ul class="commaSeparated">
+    [% FOR role IN user.roles %]
+                    <li>[%- role.role_name -%]</li>
+    [% END %]
+                </ul>
+            </td>
+            <td><a href="mailto:[%- user.email -%]">[%- user.email -%]</a></td>
+            <td><a href="[%- c.uri_for(c.controller('Admin').action_for('user'), user.user_id) -%]">[% INCLUDE icon_edit size = 16 %]</a></td>
+            <td><a href="[%- c.uri_for(c.controller('Admin').action_for('delete_user'), user.user_id) -%]">[% INCLUDE icon_delete size = 16 %]</a></td>
+        </tr>
+[% END %]
+    </tbody>
+</table>

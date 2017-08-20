@@ -1,0 +1,13 @@
+table {
+    border-collapse: collapse;
+}
+table tbody td, table thead th {
+    padding: 2px 5px;
+    text-align: left;
+}
+table thead th {
+    background: #E0E0E0;
+}
+table tbody tr:nth-child(even) {
+    background: #E0E0E0;
+}
