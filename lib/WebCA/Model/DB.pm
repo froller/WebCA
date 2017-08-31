@@ -5,11 +5,11 @@ use base 'Catalyst::Model::DBIC::Schema';
 
 __PACKAGE__->config(
     schema_class => 'WebCA::Schema',
-    
+
     connect_info => {
-        dsn => 'dbi:mysql:webca',
+        dsn => 'dbi:Pg:webca',
         user => 'webca',
-        password => 'webca_123',
+        password => 'webca',
     }
 );
 

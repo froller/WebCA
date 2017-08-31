@@ -2,5 +2,6 @@
 
 . db_settings
 
-mysqldump --add-drop-database --add-drop-table --complete-insert --skip-extended-insert --user=$USERNAME --password=$PASSWORD $DATABASE > $FILENAME
+export PGPASSWORD=$PASSWORD
 
+pg_dump --clean --file=$FILENAME --user=$USERNAME $DATABASE

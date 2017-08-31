@@ -2,5 +2,6 @@
 
 . db_settings
 
-mysql --user=$USERNAME --password=$PASSWORD $DATABASE --batch < $FILENAME
+export PGPASSWORD=$PASSWORD
 
+psql --user=$USERNAME --password=$PASSWORD $DATABASE  < $FILENAME
